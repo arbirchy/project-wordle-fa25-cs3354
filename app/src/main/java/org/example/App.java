@@ -36,7 +36,15 @@ public class App {
 
         Collections.shuffle(wordsToSolve);
 
-        System.out.println(wordsToSolve.toString());
+        boolean playAgain = true;
+        int i = 0;
+        while(playAgain) {
+            if(Game.run(wordsToSolve.get(i)) == JOptionPane.NO_OPTION) {
+                playAgain = false;
+            }
+            i++;
+        }
+
         return;
     }
 }

@@ -1,5 +1,4 @@
 package app.src.main.java.org.example;
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -54,7 +53,7 @@ public class Game {
             if(Guess.isSolved(wordleGame[guessTracker].toString(), answer)) {
                 hasWon = true;
             }
-        } while(guessTracker < 6 && hasWon == false);
+        } while(guessTracker < 5 && hasWon == false);
         
         if(hasWon) {
             JOptionPane.showMessageDialog(wordleWindow, "You won! You got the correct answer,\n" + answer + ", in " + (guessTracker+1) + " tries.");
@@ -62,6 +61,8 @@ public class Game {
             JOptionPane.showMessageDialog(wordleWindow, "You lost. You did not get the correct word, " + answer + ",\nin six tries.");
         }
 
-        return JOptionPane.showConfirmDialog(wordleWindow, "Play again?", "WORDLE", JOptionPane.YES_NO_OPTION);
+        int returned = JOptionPane.showConfirmDialog(wordleWindow, "Play again?", "WORDLE", JOptionPane.YES_NO_OPTION);
+        wordleWindow.setVisible(false);
+        return returned;
     }
 }
